@@ -1,4 +1,4 @@
-package com.example.wang.utils;
+package com.example.utils;
 
 import java.util.Timer;
 import java.util.TimerTask;

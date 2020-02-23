@@ -1,7 +1,7 @@
 /*
  * Copyright (C) 2019 Baidu, Inc. All Rights Reserved.
  */
-package com.example.wang.net.netstate;
+package com.example.netstate;
 
 /**
  * 网络常量类

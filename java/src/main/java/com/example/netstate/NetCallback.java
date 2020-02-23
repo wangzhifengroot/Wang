@@ -1,5 +1,5 @@
 
-package com.example.wang.net.netstate;
+package com.example.netstate;
 
 /**
  * 网络状态发生改变回调

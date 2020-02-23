@@ -1,4 +1,4 @@
-package com.example.wang.utils;
+package com.example.utils;
 
 /**
  * TimerUtil 的任务接口
