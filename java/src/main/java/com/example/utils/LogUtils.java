@@ -10,7 +10,7 @@ import java.io.InputStream;
 
 /**
  * LogUtils  日志工具类
- * 1.支持开关log，默认打开log输出
+ * 1.支持开关log，默认apk是debug打开日志，release关闭日志
  * 2.提供两种Log打印，一种不需要输入TAG值，有默认的TAG。另一种可以传入自定义TAG的值
  *
  *
@@ -26,7 +26,7 @@ public class LogUtils {
     // TAG值
     private static String TAG = "TAG";
     // deBug开关
-    private static boolean mIsDebug = true;
+    private static boolean mIsDebug = BuildConfig.DEBUG;
 
     private static final InputStream is = null;
 
