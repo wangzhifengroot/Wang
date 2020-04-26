@@ -22,9 +22,8 @@ import android.content.SharedPreferences.Editor;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
-/*
- *
- */
+
+@Deprecated
 public class SharePreferenceUtil {
 
     public static final String SP_NAME = "recommend_setting";
