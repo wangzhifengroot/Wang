@@ -10,6 +10,7 @@ import java.io.InputStream;
 
 /**
  * LogUtils  日志工具类
+ * 默认debug的会输出全部log，release只会输出e级log
  * 1.支持开关log，默认apk是debug打开日志，release关闭日志
  * 2.提供两种Log打印，一种不需要输入TAG值，有默认的TAG。另一种可以传入自定义TAG的值
  *
@@ -20,7 +21,6 @@ import java.io.InputStream;
  *
  *
  */
-
 
 public class LogUtils {
     // TAG值
@@ -98,21 +98,6 @@ public class LogUtils {
         return TAG;
     }
 
-    /**
-     * 打印获取到所有信息
-     * 不建议使用，没有完成
-     */
-    @Deprecated
-    public static void allMessages() {
-        Log.e(TAG, "是不是debug版本" + BuildConfig.DEBUG);
-        Log.e(TAG, "APPLICATION_ID" + BuildConfig.APPLICATION_ID);
-        Log.e(TAG, "FLAVOR" + BuildConfig.FLAVOR);
-        Log.e(TAG, "VERSION_NAME" + BuildConfig.VERSION_NAME);
-        Log.e(TAG, "VERSION_CODE" + BuildConfig.VERSION_CODE);
-        Log.e(TAG, "BUILD_TYPE" + BuildConfig.BUILD_TYPE);
-    }
-
-
     public static void v(String tag, String message) {
         if (mIsDebug) {
             Log.v(tag, message);
@@ -138,9 +123,7 @@ public class LogUtils {
     }
 
     public static void e(String tag, String message) {
-        if (mIsDebug) {
             Log.e(tag, message);
-        }
     }
 
     public static void v(String message) {
@@ -168,9 +151,7 @@ public class LogUtils {
     }
 
     public static void e(String message) {
-        if (mIsDebug) {
             Log.e(TAG, message);
-        }
     }
 
 }
