@@ -6,6 +6,11 @@ import android.os.Environment;
 import android.util.Log;
 
 import java.io.File;
+
+/**
+ * 测试阶段
+ */
+
 @Deprecated
 public class SDCardUtil {
 
@@ -21,8 +26,6 @@ public class SDCardUtil {
 
 
     /**
-     *
-     *
      * @return SD卡存在返回正常路径；SD卡不存在返回""
      */
     public static String getSDCardPath() {
