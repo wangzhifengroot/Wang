@@ -1,6 +1,4 @@
-/*
- * Copyright (C) 2019 Baidu, Inc. All Rights Reserved.
- */
+
 package com.example.netstate;
 
 import java.io.BufferedReader;

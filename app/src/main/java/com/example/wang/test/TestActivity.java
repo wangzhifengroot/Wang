@@ -9,15 +9,11 @@ import com.example.widget.CustomDialog;
 
 
 public class TestActivity extends Activity {
-
-
+    public String string="";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_test);
-        CustomDialog customDialog = new CustomDialog(this);
-        customDialog.show();
-
 
     }
 }
