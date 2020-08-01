@@ -2,6 +2,8 @@
 打造一个简化工作的项目，希望后期会支持Kotlin、转移到Androidx和单测代码
 提供工具类，一些base的UI
 
+implementation 'com.github.wangzhifengroot:Wang:0.0.1'
+
 已经验证过
 net 
 
