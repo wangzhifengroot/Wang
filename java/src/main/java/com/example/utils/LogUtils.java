@@ -80,7 +80,7 @@ public class LogUtils {
     /**
      * @param isDebug 控制log开关，true打开Log，false关闭Log
      */
-    public void setDebug(boolean isDebug) {
+    public static void setDebug(boolean isDebug) {
         mIsDebug = isDebug;
     }
 
