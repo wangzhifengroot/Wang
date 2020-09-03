@@ -4,11 +4,13 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
-@Deprecated
 public class FileUtil {
 
     private static final String TAG = "FileUtil";
+    private static final ExecutorService executor = Executors.newSingleThreadExecutor();
 
     public interface FileCallback {
         void onSuccess(String result);
@@ -16,12 +18,6 @@ public class FileUtil {
         void onFailure(String msg);
     }
 
-    /**
-     *
-     * @param dest
-     * @param fileName
-     * @param callback
-     */
     public static void readJsonFileFromSdcard(final String dest, final String fileName, final FileCallback callback) {
         new Thread(new Runnable() {
             @Override
@@ -44,6 +40,16 @@ public class FileUtil {
                 }
             }
         }).start();
+    }
+
+    /**
+     * 删除指定目录指定前后缀的文件
+     *
+     * @param dirPath
+     * @param regEx
+     */
+    public static void delete(String dirPath, String regEx) {
+        executor.execute(new DeleteRunnable(dirPath,  regEx));
     }
 
 }
