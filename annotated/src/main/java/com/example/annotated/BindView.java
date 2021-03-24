@@ -1,4 +1,4 @@
-package com.example.processor.java.findviewbyid;
+package com.example.annotated;
 
 import androidx.annotation.IdRes;
 
@@ -8,7 +8,7 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 // 保留到类级别
-@Retention(RetentionPolicy.CLASS)
+@Retention(RetentionPolicy.RUNTIME)
 // 作用到字段上
 @Target(ElementType.FIELD)
 public @interface BindView {

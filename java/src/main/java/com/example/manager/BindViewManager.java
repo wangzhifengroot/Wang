@@ -1,11 +1,13 @@
-package com.example.processor.java.findviewbyid;
+package com.example.manager;
+
+import android.app.Activity;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
 public class BindViewManager {
 
-    public static <T> void bind(T activity) {
+    public static void bind(Activity activity) {
 
         Class clazz = activity.getClass();
         try {

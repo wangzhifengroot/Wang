@@ -1,8 +1,13 @@
 package com.example.processor.java.findviewbyid;
 
+import com.squareup.javapoet.ClassName;
+import com.squareup.javapoet.MethodSpec;
+import com.squareup.javapoet.TypeSpec;
+
 import java.util.HashMap;
 import java.util.Map;
 
+import javax.lang.model.element.Modifier;
 import javax.lang.model.element.PackageElement;
 import javax.lang.model.element.TypeElement;
 import javax.lang.model.element.VariableElement;
@@ -29,6 +34,7 @@ public class ClassCreatorProxy {
 
     /**
      * 创建Java代码
+     *
      * @return
      */
     public String generateJavaCode() {
@@ -47,6 +53,7 @@ public class ClassCreatorProxy {
 
     /**
      * 加入Method
+     *
      * @param builder
      */
     private void generateMethods(StringBuilder builder) {
@@ -61,13 +68,53 @@ public class ClassCreatorProxy {
         builder.append("  }\n");
     }
 
-    public String getProxyClassFullName()
-    {
+    public String getProxyClassFullName() {
         return mPackageName + "." + mBindingClassName;
     }
 
-    public TypeElement getTypeElement()
-    {
+    public TypeElement getTypeElement() {
         return mTypeElement;
+    }
+
+    //======================
+
+    /**
+     * 创建Java代码
+     * javapoet
+     *
+     * @return
+     */
+    public TypeSpec generateJavaCode2() {
+        TypeSpec bindingClass = TypeSpec.classBuilder(mBindingClassName)
+                .addModifiers(Modifier.PUBLIC)
+                .addMethod(generateMethods2())
+                .build();
+        return bindingClass;
+
+    }
+
+    /**
+     * 加入Method
+     * javapoet
+     */
+    private MethodSpec generateMethods2() {
+        ClassName host = ClassName.bestGuess(mTypeElement.getQualifiedName().toString());
+        MethodSpec.Builder methodBuilder = MethodSpec.methodBuilder("bind")
+                .addModifiers(Modifier.PUBLIC)
+                .returns(void.class)
+                .addParameter(host, "host");
+
+        for (int id : mVariableElementMap.keySet()) {
+            VariableElement element = mVariableElementMap.get(id);
+            String name = element.getSimpleName().toString();
+            String type = element.asType().toString();
+            methodBuilder.addCode("host." + name + " = " + "(" + type + ")(((android.app.Activity)host).findViewById( " + id + "));");
+        }
+        return methodBuilder.build();
+    }
+
+
+    public String getPackageName() {
+        return mPackageName;
     }
 }
