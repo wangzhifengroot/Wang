@@ -1,20 +1,10 @@
 apply plugin: 'java-library'
 apply plugin: 'kotlin'
-
-
-// 指定JAVA版本
-sourceCompatibility = "1.7"
-targetCompatibility = "1.7"
-/*java {
-    sourceCompatibility = JavaVersion.VERSION_1_7
-    targetCompatibility = JavaVersion.VERSION_1_7
-}*/
-/*
-// 指定控制台输出的字符编码格式
-tasks.withType(JavaCompile) {
-    options.encoding("UTF-8")
+// 指定JAVA环境
+java {
+    sourceCompatibility = JavaVersion.VERSION_1_8
+    targetCompatibility = JavaVersion.VERSION_1_8
 }
-*/
 
 // 依赖
 dependencies {
